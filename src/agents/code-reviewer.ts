@@ -129,6 +129,27 @@ function parseReviewOutput(output: string): ReviewResult {
 }
 
 export async function review(options: CliOptions): Promise<ReviewResult> {
+  // If diff is provided (for GitHub App PR review), use it directly
+  if (options.diff) {
+    console.log('📂 Reviewing PR diff directly');
+
+    const prompt = `${AGENT_PROMPT}\n\n## Stack detected\nDiff/Patch (PR review mode)\n\n## Diff to review\n\`\`\`\n${options.diff}\n\`\`\`\n\n## Your review:\n`;
+
+    const messages = [{ role: 'user', content: prompt }];
+
+    console.log('🤖 Sending to MiniMax API...');
+    let output: string;
+    try {
+      output = await chat(messages, options);
+    } catch (e) {
+      console.error('Error during chat:', e);
+      throw e;
+    }
+
+    return parseReviewOutput(output);
+  }
+
+  // Original file-based review for CLI
   const targetPath = path.resolve(options.path);
 
   if (!fs.existsSync(targetPath)) {

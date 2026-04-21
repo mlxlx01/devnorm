@@ -20,4 +20,5 @@ export interface CliOptions {
   apiKey?: string;
   apiUrl?: string;
   model?: string;
+  diff?: string;
 }
