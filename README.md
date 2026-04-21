@@ -10,6 +10,7 @@
 - **Team-Oriented**: Built for teams with collaboration features, quality dashboards, and GitHub integration
 - **Lightweight CLI**: `devnorm review ./src` — review any codebase in seconds
 - **GitHub Actions Ready**: Integrate into your CI/CD pipeline with a single step
+- **GitHub App**: Automatic PR review with AI-powered analysis
 - **Customizable Rules**: Define team-specific code quality rules
 
 ## Quick Start
@@ -44,6 +45,10 @@ devnorm review ./src
 # Review with custom model
 devnorm review ./src --model M2.7-highspeed
 ```
+
+### GitHub App (Beta)
+
+Automatically review Pull Requests with AI. See [github-app/README.md](github-app/README.md) for setup.
 
 ## Architecture
 
