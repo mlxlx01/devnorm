@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "apiUrl": "https://api.minimaxi.com/anthropic/v1/messages",
+  "model": "M2.7-highspeed"
+}
