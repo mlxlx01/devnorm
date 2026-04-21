@@ -6,7 +6,7 @@
 
 ## Features
 
-- **AI-Powered Review**: Uses advanced AI models to analyze code and identify bugs, logic errors, and maintainability issues
+- **AI-Powered Review**: Uses advanced AI models to lyze code and identify bugs, logic errors, and maintainability issues
 - **Team-Oriented**: Built for teams with collaboration features, quality dashboards, and GitHub integration
 - **Lightweight CLI**: `devnorm review ./src` — review any codebase in seconds
 - **GitHub Actions Ready**: Integrate into your CI/CD pipeline with a single step
