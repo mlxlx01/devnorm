@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { review } from '../src/agents/code-reviewer.js';
+import { review } from '../dist/agents/code-reviewer.js';
 
 const MINIMAX_API_KEY = process.env.MINIMAX_API_KEY;
 
