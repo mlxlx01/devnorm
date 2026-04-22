@@ -92,7 +92,7 @@ function parseReviewOutput(output: string): ReviewResult {
   const findingsMatch = output.match(/## Findings \(Confidence >= 8\)([\s\S]*?)(?=## Worth a second look|$)/);
   if (findingsMatch) {
     const findingsText = findingsMatch[1];
-    const findingBlocks = findingsText.split(/### \d+\./).filter(Boolean);
+    const findingBlocks = findingsText.split(/### (?:\d+\.)?/).filter(Boolean);
     for (const block of findingBlocks) {
       const lines = block.trim().split('\n');
       if (lines.length === 0) continue;

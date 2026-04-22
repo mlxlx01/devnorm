@@ -35,5 +35,5 @@ export async function chat(
   }
 
   const data = await response.json() as { content: Array<{ type: string; text: string }> };
-  return data.content[0]?.text || '';
+  return data.content?.[0]?.text ?? '';
 }

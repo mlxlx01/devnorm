@@ -85,11 +85,14 @@ function buildReviewComment(result, prNumber) {
 
 async function postPRComment(repo, prNumber, body, token) {
   const url = `https://api.github.com/repos/${repo}/issues/${prNumber}/comments`;
-  await fetch(url, {
+  const response = await fetch(url, {
     method: 'POST',
     headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' },
     body: JSON.stringify({ body })
   });
+  if (!response.ok) {
+    console.error(`[DevNorm] Failed to post comment: ${response.status} ${await response.text()}`);
+  }
 }
 
 export function verifyWebhookSignature(payload, signature, secret) {
